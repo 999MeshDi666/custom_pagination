@@ -16,6 +16,8 @@ const TablePagination = ({
   handleMoveToNextRow,
   handleMoveToEndRow,
 }: TablePaginationProps) => {
+  const shouldDisablePrevBtn = !isLoopedPagination && currentRow <= 1;
+  const shouldDisableNextBtn = !isLoopedPagination && currentRow >= totalPage;
   return (
     <div className="table_pagination">
       <div className="table_pagination_btn_group">
@@ -27,7 +29,7 @@ const TablePagination = ({
         </button>
         <button
           className="table_pagination_button"
-          disabled={currentRow <= 1}
+          disabled={shouldDisablePrevBtn}
           onClick={handleMoveToPrevRow}>
           {"<"}
         </button>
@@ -39,7 +41,7 @@ const TablePagination = ({
         <button
           className="table_pagination_button"
           onClick={handleMoveToNextRow}
-          disabled={!isLoopedPagination && currentRow >= totalPage}>
+          disabled={shouldDisableNextBtn}>
           {">"}
         </button>
         <button

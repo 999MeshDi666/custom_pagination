@@ -13,7 +13,10 @@ const usePagination = <T,>({
   const paginatedList = formatPaginatedList(list, 10);
   const [row, setRow] = useState<number>(0);
 
-  const handleMoveToPrevRow = () => setRow(row - 1);
+  const handleMoveToPrevRow = () => {
+    if (isLoopedPagination && row === 0) setRow(paginatedList.length - 1);
+    else setRow(row - 1);
+  };
   const handleMoveToNextRow = () => {
     const isEqual = paginatedList.length - 1 === row;
     if (isLoopedPagination && isEqual) setRow(0);
