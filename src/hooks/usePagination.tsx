@@ -1,12 +1,6 @@
 import { useState } from "react";
+import { formatPaginatedList } from "../utils/formatters";
 
-function formatPaginatedList<T>(array: Array<T>, itemsPerRow: number) {
-  const paginatedList = [];
-  for (let i = 0; i < array.length; i += itemsPerRow) {
-    paginatedList.push(array.slice(i, i + itemsPerRow));
-  }
-  return paginatedList;
-}
 type PaginationProps<T> = {
   list: Array<T>;
   isLoopedPagination: boolean;

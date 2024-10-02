@@ -23,13 +23,13 @@ const TablePagination = ({
           className="table_pagination_button"
           disabled={currentRow <= 1}
           onClick={handleMoveToBeginRow}>
-          начало
+          {"<<"}
         </button>
         <button
           className="table_pagination_button"
           disabled={currentRow <= 1}
           onClick={handleMoveToPrevRow}>
-          назад
+          {"<"}
         </button>
       </div>
       <p style={{ margin: 0 }}>
@@ -40,13 +40,13 @@ const TablePagination = ({
           className="table_pagination_button"
           onClick={handleMoveToNextRow}
           disabled={!isLoopedPagination && currentRow >= totalPage}>
-          вперед
+          {">"}
         </button>
         <button
           className="table_pagination_button"
           disabled={currentRow >= totalPage}
           onClick={handleMoveToEndRow}>
-          конец
+          {">>"}
         </button>
       </div>
     </div>

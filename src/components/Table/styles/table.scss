@@ -1,5 +1,5 @@
 .table_container {
-  width: 800px;
+  width: 100%;
   margin: 0 auto;
   padding: 0.313rem;
   border: 0.063rem #ffffff dashed;
@@ -8,7 +8,7 @@
     padding: 0.313rem;
     display: flex;
     align-self: center;
-    justify-content: end;
+    justify-content: space-between;
     gap: 1.25rem;
     .table_toolbar_pagination_checkbox {
       -webkit-user-select: none;
@@ -28,35 +28,57 @@
       border: 0.063rem #ffffff dashed;
     }
   }
-
   .table_pagination {
     display: flex;
-    justify-content: end;
+
+    justify-content: space-between;
     align-items: center;
     padding: 0.313rem 0.125rem;
-    gap: 1.25rem;
-  }
-  .table_pagination_btn_group {
-    display: flex;
-    align-items: center;
-    gap: 0.625rem;
-  }
+    gap: 0.5rem;
 
-  .table_pagination_button {
-    padding: 0.4em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: transparent;
+    .table_pagination_btn_group {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+    }
+    .table_pagination_button {
+      padding: 0.4em 1.2em;
+      font-size: 1em;
+      font-weight: 500;
+      font-family: inherit;
+      background-color: transparent;
 
-    border: 0.063rem #8e8e8e dashed;
-    cursor: pointer;
-    transition: border-color 0.25s;
+      border: 0.063rem #8e8e8e dashed;
+      cursor: pointer;
+      transition: border-color 0.25s;
+    }
+    .table_pagination_button:hover {
+      border-color: #fff;
+    }
+    .table_pagination_button:active {
+      border-color: #8e8e8e;
+    }
   }
-  .table_pagination_button:hover {
-    border-color: #fff;
+}
+
+// Medium devices (tablets, 576px and up)
+@media (min-width: 576px) {
+  .table_container {
+    .table_toolbar {
+      justify-content: end;
+    }
+    .table_pagination {
+      justify-content: center;
+      gap: 1.25rem;
+    }
   }
-  .table_pagination_button:active {
-    border-color: #8e8e8e;
+}
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .table_container {
+    width: 800px;
+    .table_pagination {
+      justify-content: end;
+    }
   }
 }
