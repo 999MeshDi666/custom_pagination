@@ -1,50 +1,37 @@
-# React + TypeScript + Vite
+# Кастоманя пагинация
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Стек: React, Typescript, SCSS.
+Нужно предоставить рабочий код, который можно будет скачать и запустить
+локально. Это может быть ссылка на github или проект архивированный в zip.
+Требования:
+- Отделение логики от UI: Логика пагинации должна быть вынесена в
+отдельный хук.
+- Отображение пагинации: Реализовать визуальное отображение
+пагинации.
+○ Дизайн: выбрать/найти и реализовать собственный дизайн.
 
-Currently, two official plugins are available:
+### Функциональные требования:
+Навигация:
+- Переход вперед на 1 страницу
+- Переход назад на 1 страницу
+- Переход вперед на несколько страниц
+- Переход назад на несколько страниц
+  
+Режимы работы:
+- Зацикленная пагинация: При переходе вперед с последней страницы
+происходит переход на первую и наоборот.
+- Обычная пагинация: Запрещены переходы вперед, если текущая
+страница последняя, и назад, если текущая страница первая.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Реализовать пагинацию в UI:
+- Горизонтальный список страниц
+- Кнопки вперед/назад на 1 страницу;
+- Кнопки вперед назад на несколько страниц
+- Active/disabled page item
 
-## Expanding the ESLint configuration
+Focus management.
+- Должна работать навигация посредством пагинации
+- Текущий активный элемент должен иметь выделение (явно видный) с
+помощью свойства css outline
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
