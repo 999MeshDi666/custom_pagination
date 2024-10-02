@@ -1,6 +1,8 @@
 .table_container {
   width: 800px;
   margin: 0 auto;
+  padding: 0.313rem;
+  border: 0.063rem #ffffff dashed;
 
   .table_toolbar {
     padding: 0.313rem;
@@ -20,14 +22,13 @@
     .table_header {
       width: 50%;
     }
+    .table_header,
+    .table_cell {
+      padding: 0.313rem;
+      border: 0.063rem #ffffff dashed;
+    }
   }
 
-  &,
-  th,
-  td {
-    padding: 0.313rem;
-    border: 0.063rem #ffffff dashed;
-  }
   .table_pagination {
     display: flex;
     justify-content: end;

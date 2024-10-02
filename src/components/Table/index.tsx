@@ -35,14 +35,14 @@ const Table = () => {
       <table className="table">
         <tr className="table_row">
           <th className="table_header">Имя</th>
-          <th>Фамилия</th>
-          <th>Возраст</th>
+          <th className="table_header">Фамилия</th>
+          <th className="table_header">Возраст</th>
         </tr>
         {paginatedList.map((fp: People, index: number) => (
-          <tr key={index}>
+          <tr className="table_row" key={index}>
             <td className="table_cell">{fp.name}</td>
-            <td>{fp.surname}</td>
-            <td>{fp.age}</td>
+            <td className="table_cell">{fp.surname}</td>
+            <td className="table_cell">{fp.age}</td>
           </tr>
         ))}
       </table>
